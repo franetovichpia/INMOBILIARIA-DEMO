@@ -7,7 +7,8 @@ humano) y panel de gestión multiusuario.
 ## Stack
 
 - **Next.js 16** (App Router) + TypeScript + Tailwind CSS
-- **Prisma** + SQLite (demo local, fácil de migrar a Postgres/MySQL)
+- **Prisma** + **Postgres** (necesario para desplegar en Vercel u otro
+  entorno serverless, donde no se puede usar un archivo de SQLite)
 - **NextAuth v5** (Credentials) para el panel de gestión con roles
 - **Anthropic API** (`@anthropic-ai/sdk`) para el chat con IA, con
   búsqueda de propiedades como *tool* del modelo (no se envía todo el
@@ -40,16 +41,20 @@ humano) y panel de gestión multiusuario.
   filtran habitualmente: ciudad, tipo, operación, estado, precio, fecha.
 - El chat consulta la base de datos a demanda (tool calling) en lugar de
   incluir el catálogo completo en cada prompt.
-- Para producción con mucho tráfico se recomienda migrar de SQLite a
-  **Postgres** (ver más abajo) y desplegar detrás de un CDN/edge cache
-  para las páginas públicas.
+- Para producción con mucho tráfico, además de Postgres conviene
+  desplegar detrás de un CDN/edge cache para las páginas públicas.
 
 ## Primeros pasos
 
+Necesitás una base Postgres (local o en la nube) antes de arrancar. La
+forma más rápida de conseguir una gratis es [neon.new](https://neon.new)
+o [Supabase](https://supabase.com); copiá la connection string que te
+den.
+
 ```bash
 npm install
-cp .env.example .env   # completar ANTHROPIC_API_KEY si se quiere el chat con IA
-npx prisma db push     # crea prisma/dev.db con el esquema
+cp .env.example .env   # pegar el DATABASE_URL de Postgres y completar lo demás
+npx prisma db push     # crea las tablas en esa base
 npx prisma db seed     # carga usuarios y propiedades de ejemplo
 npm run dev
 ```
@@ -67,7 +72,8 @@ Abrir http://localhost:3000
 
 Ver `.env.example`:
 
-- `DATABASE_URL`: cadena de conexión de Prisma (SQLite por defecto).
+- `DATABASE_URL`: cadena de conexión de Postgres (ver más abajo cómo
+  conseguir una).
 - `AUTH_SECRET`: secreto de NextAuth (generar uno propio en producción).
 - `ANTHROPIC_API_KEY`: clave de la API de Anthropic para el chat con IA
   (opcional en desarrollo).
@@ -77,15 +83,36 @@ Ver `.env.example`:
 - `AGENT_WHATSAPP`: número de WhatsApp del agente (formato internacional,
   sin "+"), para el link directo que ofrece el chat al derivar.
 
-## Migrar a Postgres para producción
+## Desplegar en Vercel
 
-1. En `prisma/schema.prisma` cambiar `provider = "sqlite"` por
-   `provider = "postgresql"` en el bloque `datasource db`.
-2. Los campos que hoy son `String` a modo de "enum" (`role`, `type`,
-   `operation`, `status`) se pueden convertir a `enum` reales de Prisma
-   si se desea (SQLite no los soporta, Postgres sí).
-3. Configurar `DATABASE_URL` apuntando al Postgres real y correr
-   `npx prisma migrate deploy`.
+Vercel corre el sitio en funciones serverless con sistema de archivos
+efímero/de solo lectura: **no admite un archivo de SQLite**, por eso el
+proyecto usa Postgres desde el principio. Pasos para publicarlo:
+
+1. **Crear la base de datos**: en [neon.new](https://neon.new) (o
+   Supabase, o el addon de Postgres de Vercel), crear un proyecto nuevo
+   y copiar la connection string (`DATABASE_URL`).
+2. **Cargar el esquema** una vez, desde tu máquina, apuntando esa misma
+   `DATABASE_URL` en tu `.env` local:
+   ```bash
+   npx prisma db push
+   npx prisma db seed
+   ```
+3. **Importar el repo en Vercel** (vercel.com → Add New → Project →
+   elegir este repositorio de GitHub).
+4. **Configurar las variables de entorno** en Vercel (Settings →
+   Environment Variables), las mismas de `.env.example`:
+   - `DATABASE_URL` (la de Postgres del paso 1)
+   - `AUTH_SECRET` (generar una nueva para producción, no reusar la de
+     desarrollo — se puede generar con `openssl rand -base64 32`)
+   - `ANTHROPIC_API_KEY` (opcional, para el chat con IA completo)
+   - `ANTHROPIC_MODEL`, `AGENT_NAME`, `AGENT_WHATSAPP` (opcionales)
+5. **Deploy**. Si falla, revisar en Vercel → el deployment → "Runtime
+   Logs" para ver el error real (suele ser una variable de entorno que
+   falta o mal copiada).
+
+Los pasos 1 y 2 solo se repiten si se cambia de base de datos; después,
+cada `git push` a la rama conectada dispara un deploy nuevo solo.
 
 ## Estructura
 
