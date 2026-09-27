@@ -37,11 +37,11 @@ export default async function PropiedadesPage({
       <div className="mb-8">
         <PropertyFilters />
       </div>
-      <p className="mb-4 text-sm text-black/60 dark:text-white/60">
+      <p className="mb-4 text-sm text-black/60">
         {total} resultado{total !== 1 && "s"}
       </p>
       {items.length === 0 ? (
-        <p className="text-black/60 dark:text-white/60">
+        <p className="text-black/60">
           No se encontraron propiedades con esos filtros.
         </p>
       ) : (

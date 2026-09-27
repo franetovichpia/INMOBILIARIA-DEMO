@@ -26,7 +26,7 @@ export default function PropertyForm({
           name="title"
           required
           defaultValue={property?.title}
-          className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+          className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
         />
       </div>
 
@@ -37,7 +37,7 @@ export default function PropertyForm({
           required
           rows={4}
           defaultValue={property?.description}
-          className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+          className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
         />
       </div>
 
@@ -47,7 +47,7 @@ export default function PropertyForm({
           <select
             name="type"
             defaultValue={property?.type ?? PROPERTY_TYPES[0]}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           >
             {PROPERTY_TYPES.map((t) => (
               <option key={t} value={t}>
@@ -61,7 +61,7 @@ export default function PropertyForm({
           <select
             name="operation"
             defaultValue={property?.operation ?? OPERATION_TYPES[0]}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           >
             {OPERATION_TYPES.map((o) => (
               <option key={o} value={o}>
@@ -75,7 +75,7 @@ export default function PropertyForm({
           <select
             name="status"
             defaultValue={property?.status ?? PROPERTY_STATUSES[0]}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           >
             {PROPERTY_STATUSES.map((s) => (
               <option key={s} value={s}>
@@ -95,7 +95,7 @@ export default function PropertyForm({
             step="0.01"
             required
             defaultValue={property?.price}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -103,7 +103,7 @@ export default function PropertyForm({
           <input
             name="currency"
             defaultValue={property?.currency ?? "USD"}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div className="flex items-end gap-2 pb-2">
@@ -127,7 +127,7 @@ export default function PropertyForm({
             name="address"
             required
             defaultValue={property?.address}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -136,7 +136,7 @@ export default function PropertyForm({
             name="city"
             required
             defaultValue={property?.city}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -145,7 +145,7 @@ export default function PropertyForm({
             name="province"
             required
             defaultValue={property?.province}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
       </div>
@@ -157,7 +157,7 @@ export default function PropertyForm({
             name="bedrooms"
             type="number"
             defaultValue={property?.bedrooms ?? 0}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -166,7 +166,7 @@ export default function PropertyForm({
             name="bathrooms"
             type="number"
             defaultValue={property?.bathrooms ?? 0}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -176,7 +176,7 @@ export default function PropertyForm({
             type="number"
             step="0.01"
             defaultValue={property?.areaTotal ?? 0}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -186,7 +186,7 @@ export default function PropertyForm({
             type="number"
             step="0.01"
             defaultValue={property?.areaCovered ?? 0}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
       </div>
@@ -200,7 +200,7 @@ export default function PropertyForm({
           rows={3}
           defaultValue={images}
           placeholder="https://..."
-          className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+          className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
         />
       </div>
 

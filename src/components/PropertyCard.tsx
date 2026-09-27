@@ -19,9 +19,9 @@ export default function PropertyCard({ property }: { property: Property }) {
   return (
     <Link
       href={`/propiedades/${property.id}`}
-      className="group flex flex-col overflow-hidden rounded-xl border border-black/10 bg-white transition hover:shadow-lg dark:border-white/10 dark:bg-black"
+      className="group flex flex-col overflow-hidden rounded-xl border border-black/10 bg-white transition hover:shadow-lg"
     >
-      <div className="relative h-52 w-full bg-black/5 dark:bg-white/5">
+      <div className="relative h-52 w-full bg-black/5">
         {cover ? (
           <Image
             src={cover}
@@ -51,14 +51,14 @@ export default function PropertyCard({ property }: { property: Property }) {
           {PROPERTY_TYPE_LABELS[property.type as PropertyType] ?? property.type}
         </p>
         <h3 className="line-clamp-2 font-semibold">{property.title}</h3>
-        <p className="text-sm text-black/60 dark:text-white/60">
+        <p className="text-sm text-black/60">
           {property.city}, {property.province}
         </p>
         <div className="mt-auto flex items-center justify-between pt-2">
           <span className="text-lg font-bold">
             {formatPrice(property.price, property.currency)}
           </span>
-          <span className="text-xs text-black/50 dark:text-white/50">
+          <span className="text-xs text-black/50">
             {property.bedrooms > 0 && `${property.bedrooms} dorm · `}
             {property.areaTotal} m²
           </span>

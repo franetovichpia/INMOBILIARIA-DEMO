@@ -55,7 +55,7 @@ export default function ChatWidget() {
   return (
     <div className="fixed bottom-5 right-5 z-50">
       {open && (
-        <div className="mb-3 flex h-[28rem] w-80 flex-col overflow-hidden rounded-2xl border border-black/10 bg-white shadow-2xl dark:border-white/10 dark:bg-zinc-900">
+        <div className="mb-3 flex h-[28rem] w-80 flex-col overflow-hidden rounded-2xl border border-black/10 bg-white shadow-2xl">
           <div className="flex items-center justify-between bg-brand-600 px-4 py-3 text-white">
             <span className="font-semibold">Asistente Gastón Niggli Propiedades</span>
             <button onClick={() => setOpen(false)} aria-label="Cerrar chat">
@@ -69,25 +69,25 @@ export default function ChatWidget() {
                 className={`max-w-[85%] whitespace-pre-line rounded-2xl px-3 py-2 text-sm ${
                   m.role === "user"
                     ? "ml-auto bg-brand-600 text-white"
-                    : "bg-black/5 dark:bg-white/10"
+                    : "bg-black/5"
                 }`}
               >
                 {m.content}
               </div>
             ))}
             {loading && (
-              <div className="max-w-[85%] rounded-2xl bg-black/5 px-3 py-2 text-sm dark:bg-white/10">
+              <div className="max-w-[85%] rounded-2xl bg-black/5 px-3 py-2 text-sm">
                 Escribiendo...
               </div>
             )}
             <div ref={endRef} />
           </div>
-          <form onSubmit={sendMessage} className="flex gap-2 border-t border-black/10 p-3 dark:border-white/10">
+          <form onSubmit={sendMessage} className="flex gap-2 border-t border-black/10 p-3">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Escribí tu consulta..."
-              className="flex-1 rounded-full border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+              className="flex-1 rounded-full border border-black/10 px-3 py-2 text-sm"
             />
             <button
               type="submit"

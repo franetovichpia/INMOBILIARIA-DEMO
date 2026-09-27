@@ -11,7 +11,7 @@ export default function NewUserPage() {
           <input
             name="name"
             required
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -20,7 +20,7 @@ export default function NewUserPage() {
             name="email"
             type="email"
             required
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -30,7 +30,7 @@ export default function NewUserPage() {
             type="password"
             required
             minLength={6}
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           />
         </div>
         <div>
@@ -38,7 +38,7 @@ export default function NewUserPage() {
           <select
             name="role"
             defaultValue="AGENTE"
-            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+            className="w-full rounded-lg border border-black/10 px-3 py-2 text-sm"
           >
             {ROLES.map((r) => (
               <option key={r} value={r}>

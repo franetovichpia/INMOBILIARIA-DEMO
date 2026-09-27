@@ -34,7 +34,7 @@ export default function InquiryForm({ propertyId }: { propertyId: string }) {
 
   if (status === "sent") {
     return (
-      <p className="rounded-lg bg-green-50 p-4 text-sm text-green-700 dark:bg-green-950 dark:text-green-300">
+      <p className="rounded-lg bg-green-50 p-4 text-sm text-green-700">
         ¡Gracias por tu consulta! Un asesor se pondrá en contacto a la
         brevedad.
       </p>
@@ -47,26 +47,26 @@ export default function InquiryForm({ propertyId }: { propertyId: string }) {
         name="name"
         required
         placeholder="Nombre"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-black/10 px-3 py-2 text-sm"
       />
       <input
         name="email"
         type="email"
         required
         placeholder="Email"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-black/10 px-3 py-2 text-sm"
       />
       <input
         name="phone"
         placeholder="Teléfono (opcional)"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-black/10 px-3 py-2 text-sm"
       />
       <textarea
         name="message"
         required
         rows={3}
         placeholder="Mensaje"
-        className="rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+        className="rounded-lg border border-black/10 px-3 py-2 text-sm"
       />
       <button
         type="submit"
