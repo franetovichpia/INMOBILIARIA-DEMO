@@ -1,49 +1,71 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2f0df;
+  --foreground: #14251c;
 }
 
-/* Paleta de marca: verde musgo (color principal) + amarillo (acentos). */
+/* Identidad visual: verde musgo + verde profundo (marca), amarillo cálido
+   (acentos) y fondo crema. Manrope para títulos, DM Sans para texto. */
 @theme {
-  --color-brand-50: #f4f6ee;
-  --color-brand-100: #e5eada;
-  --color-brand-200: #ccd8b6;
-  --color-brand-300: #adc08a;
-  --color-brand-400: #8fa768;
-  --color-brand-500: #728c4d;
-  --color-brand-600: #5a6f3d;
-  --color-brand-700: #475831;
-  --color-brand-800: #3a4729;
-  --color-brand-900: #313c24;
-  --color-brand-950: #1b2213;
+  --color-brand-50: #eef1ea;
+  --color-brand-100: #dde3d2;
+  --color-brand-200: #c0cbad;
+  --color-brand-300: #9caf85;
+  --color-brand-400: #78915f;
+  --color-brand-500: #4d6b3f;
+  --color-brand-600: #263b2d;
+  --color-brand-700: #1c2e22;
+  --color-brand-800: #18271e;
+  --color-brand-900: #14251c;
+  --color-brand-950: #0d1712;
 
-  --color-sun-50: #fefbea;
-  --color-sun-100: #fdf3c4;
-  --color-sun-200: #fce88a;
-  --color-sun-300: #fad84e;
-  --color-sun-400: #f7c525;
-  --color-sun-500: #eaa914;
-  --color-sun-600: #cb830f;
+  --color-sun-50: #fdfce9;
+  --color-sun-100: #faf8c7;
+  --color-sun-200: #f5f199;
+  --color-sun-300: #ece864;
+  --color-sun-400: #e1df67;
+  --color-sun-500: #c9c74e;
+  --color-sun-600: #a9a73d;
+
+  --color-cream: #f2f0df;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-dm-sans);
+  --font-heading: var(--font-manrope);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-heading {
+  font-family: var(--font-heading), Arial, Helvetica, sans-serif;
+}
+
+/* Degradado del hero: oscuro a la izquierda/abajo para legibilidad del
+   texto, tomado de la referencia de diseño. */
+.hero-overlay {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(13, 23, 18, 0.75) 0%,
+      rgba(13, 23, 18, 0.45) 44%,
+      rgba(13, 23, 18, 0.15) 100%
+    ),
+    linear-gradient(0deg, rgba(13, 23, 18, 0.6), transparent 40%);
 }
