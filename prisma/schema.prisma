@@ -3,16 +3,18 @@ generator client {
 }
 
 datasource db {
-  // SQLite por defecto para correr la demo sin dependencias externas.
-  // Para producción, cambiar a "postgresql" y usar DATABASE_URL de un Postgres real.
-  provider = "sqlite"
+  // Postgres: necesario para desplegar en Vercel (u otro entorno serverless),
+  // donde el sistema de archivos es efímero/de solo lectura y no admite un
+  // archivo de SQLite. Usar un Postgres gratuito (Neon, Supabase, Vercel
+  // Postgres) tanto en desarrollo local como en producción.
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-// Nota: SQLite no soporta enums nativos de Prisma, por eso los "enums" de
-// este esquema (Role, PropertyType, OperationType, PropertyStatus) se
-// modelan como String y se validan en la app (ver src/lib/constants.ts).
-// Si se migra a Postgres, se pueden convertir a `enum` reales en Prisma.
+// Nota: los "enums" de este esquema (Role, PropertyType, OperationType,
+// PropertyStatus) se modelan como String en vez de `enum` de Prisma para
+// no perder la posibilidad de volver a SQLite en desarrollo local sin
+// dependencias. Se validan en la app (ver src/lib/constants.ts).
 
 model User {
   id        String   @id @default(cuid())
