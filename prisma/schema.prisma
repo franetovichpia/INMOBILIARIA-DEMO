@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // SQLite por defecto para correr la demo sin dependencias externas.
+  // Para producción, cambiar a "postgresql" y usar DATABASE_URL de un Postgres real.
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Nota: SQLite no soporta enums nativos de Prisma, por eso los "enums" de
+// este esquema (Role, PropertyType, OperationType, PropertyStatus) se
+// modelan como String y se validan en la app (ver src/lib/constants.ts).
+// Si se migra a Postgres, se pueden convertir a `enum` reales en Prisma.
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("AGENTE") // "ADMIN" | "AGENTE"
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  properties Property[]
+}
+
+model Property {
+  id            String   @id @default(cuid())
+  title         String
+  description   String
+  type          String // "CASA" | "DEPARTAMENTO" | "PH" | "TERRENO" | "LOCAL" | "OFICINA"
+  operation     String // "VENTA" | "ALQUILER"
+  status        String   @default("DISPONIBLE") // "DISPONIBLE" | "RESERVADA" | "VENDIDA" | "ALQUILADA"
+  price         Float
+  currency      String   @default("USD")
+  address       String
+  city          String
+  province      String
+  bedrooms      Int      @default(0)
+  bathrooms     Int      @default(0)
+  areaTotal     Float    @default(0)
+  areaCovered   Float    @default(0)
+  images        String   @default("[]") // JSON array de URLs
+  featured      Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  ownerId String
+  owner   User   @relation(fields: [ownerId], references: [id])
+
+  inquiries Inquiry[]
+
+  // Índices pensados para gran volumen de propiedades: filtros y orden
+  // por fecha son las consultas más frecuentes del listado público.
+  @@index([city])
+  @@index([type])
+  @@index([operation])
+  @@index([status])
+  @@index([featured])
+  @@index([price])
+  @@index([createdAt])
+  @@index([ownerId])
+}
+
+model Inquiry {
+  id         String   @id @default(cuid())
+  name       String
+  email      String
+  phone      String?
+  message    String
+  createdAt  DateTime @default(now())
+
+  propertyId String?
+  property   Property? @relation(fields: [propertyId], references: [id])
+
+  @@index([propertyId])
+  @@index([createdAt])
+}
