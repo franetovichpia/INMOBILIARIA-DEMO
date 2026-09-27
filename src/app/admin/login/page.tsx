@@ -40,7 +40,7 @@ function LoginForm() {
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 px-4 dark:bg-black">
       <div className="w-full max-w-sm rounded-2xl border border-black/10 bg-white p-8 shadow-sm dark:border-white/10 dark:bg-zinc-950">
         <h1 className="text-xl font-bold">
-          Inmobiliaria<span className="text-blue-600">Demo</span>
+          Gastón Niggli<span className="text-brand-600"> Propiedades</span>
         </h1>
         <p className="mb-6 mt-1 text-sm text-black/60 dark:text-white/60">
           Panel de gestión
@@ -65,7 +65,7 @@ function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-60"
+            className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 disabled:opacity-60"
           >
             {loading ? "Ingresando..." : "Ingresar"}
           </button>

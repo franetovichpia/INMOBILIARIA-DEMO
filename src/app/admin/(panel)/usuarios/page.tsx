@@ -32,7 +32,7 @@ export default async function UsersPage({
         <h1 className="text-2xl font-bold">Usuarios ({total})</h1>
         <Link
           href="/admin/usuarios/nuevo"
-          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+          className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
         >
           + Nuevo usuario
         </Link>
@@ -73,7 +73,7 @@ export default async function UsersPage({
               href={`/admin/usuarios?page=${p}`}
               className={`rounded-lg border px-3 py-1.5 ${
                 p === page
-                  ? "border-blue-600 bg-blue-600 text-white"
+                  ? "border-brand-600 bg-brand-600 text-white"
                   : "border-black/10 hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/10"
               }`}
             >

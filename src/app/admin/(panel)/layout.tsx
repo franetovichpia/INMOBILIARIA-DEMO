@@ -22,7 +22,7 @@ export default async function AdminLayout({
       <aside className="flex w-60 flex-col justify-between border-r border-black/10 bg-white p-5 dark:border-white/10 dark:bg-zinc-950">
         <div>
           <p className="mb-8 text-lg font-bold">
-            Inmobiliaria<span className="text-blue-600">Demo</span>
+            Gastón Niggli<span className="text-brand-600"> Propiedades</span>
           </p>
           <nav className="flex flex-col gap-1 text-sm font-medium">
             <Link

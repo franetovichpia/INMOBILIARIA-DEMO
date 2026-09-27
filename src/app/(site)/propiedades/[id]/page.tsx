@@ -54,7 +54,7 @@ export default async function PropertyDetailPage({
           </div>
 
           <div className="mt-6 flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+            <span className="rounded-full bg-brand-600 px-3 py-1 text-xs font-semibold text-white">
               {OPERATION_TYPE_LABELS[property.operation as OperationType] ??
                 property.operation}
             </span>

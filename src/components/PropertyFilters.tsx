@@ -91,7 +91,7 @@ export default function PropertyFilters() {
       </div>
       <button
         type="submit"
-        className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 lg:col-span-6"
+        className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700 lg:col-span-6"
       >
         Buscar
       </button>

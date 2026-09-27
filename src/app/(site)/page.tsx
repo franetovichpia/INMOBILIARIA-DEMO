@@ -9,19 +9,23 @@ export default async function Home() {
 
   return (
     <div>
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-700 to-blue-900 px-4 py-24 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-brand-700 to-brand-900 px-4 py-24 text-white">
         <div className="mx-auto max-w-4xl text-center">
+          <p className="mb-3 inline-block rounded-full bg-sun-400 px-4 py-1 text-sm font-semibold text-brand-900">
+            Casas en la costa
+          </p>
           <h1 className="text-4xl font-bold sm:text-5xl">
-            Encontrá tu próximo hogar o inversión
+            Tu próxima casa frente al mar te está esperando
           </h1>
-          <p className="mt-4 text-lg text-blue-100">
-            Propiedades en venta y alquiler seleccionadas para vos. Buscá,
-            comparativas y consultá con nuestro asistente con IA.
+          <p className="mt-4 text-lg text-brand-100">
+            Propiedades en venta y alquiler en la Costa Atlántica,
+            seleccionadas por Gastón Niggli. Buscá, comparás y consultá con
+            nuestro asistente con IA.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/propiedades"
-              className="rounded-full bg-white px-6 py-3 font-semibold text-blue-700 hover:bg-blue-50"
+              className="rounded-full bg-sun-400 px-6 py-3 font-semibold text-brand-900 hover:bg-sun-300"
             >
               Ver propiedades
             </Link>
@@ -38,7 +42,7 @@ export default async function Home() {
       <section className="mx-auto max-w-6xl px-4 py-16">
         <div className="mb-8 flex items-end justify-between">
           <h2 className="text-2xl font-bold">Propiedades destacadas</h2>
-          <Link href="/propiedades" className="text-blue-600 hover:underline">
+          <Link href="/propiedades" className="text-brand-600 hover:underline">
             Ver todas →
           </Link>
         </div>

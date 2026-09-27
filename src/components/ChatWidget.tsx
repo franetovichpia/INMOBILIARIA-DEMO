@@ -10,7 +10,7 @@ export default function ChatWidget() {
     {
       role: "assistant",
       content:
-        "¡Hola! Soy el asistente de InmobiliariaDemo. Contame qué tipo de propiedad estás buscando (ciudad, presupuesto, dormitorios) y te ayudo a encontrarla.",
+        "¡Hola! Soy el asistente de Gastón Niggli Propiedades. Contame qué tipo de casa en la costa estás buscando (ciudad, presupuesto, dormitorios) y te ayudo a encontrarla. Si preferís hablar directo con un agente, decímelo cuando quieras.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -56,8 +56,8 @@ export default function ChatWidget() {
     <div className="fixed bottom-5 right-5 z-50">
       {open && (
         <div className="mb-3 flex h-[28rem] w-80 flex-col overflow-hidden rounded-2xl border border-black/10 bg-white shadow-2xl dark:border-white/10 dark:bg-zinc-900">
-          <div className="flex items-center justify-between bg-blue-600 px-4 py-3 text-white">
-            <span className="font-semibold">Asistente InmobiliariaDemo</span>
+          <div className="flex items-center justify-between bg-brand-600 px-4 py-3 text-white">
+            <span className="font-semibold">Asistente Gastón Niggli Propiedades</span>
             <button onClick={() => setOpen(false)} aria-label="Cerrar chat">
               ✕
             </button>
@@ -68,7 +68,7 @@ export default function ChatWidget() {
                 key={i}
                 className={`max-w-[85%] whitespace-pre-line rounded-2xl px-3 py-2 text-sm ${
                   m.role === "user"
-                    ? "ml-auto bg-blue-600 text-white"
+                    ? "ml-auto bg-brand-600 text-white"
                     : "bg-black/5 dark:bg-white/10"
                 }`}
               >
@@ -92,7 +92,7 @@ export default function ChatWidget() {
             <button
               type="submit"
               disabled={loading}
-              className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
+              className="rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
             >
               Enviar
             </button>
@@ -101,7 +101,7 @@ export default function ChatWidget() {
       )}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700"
+        className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-600 text-white shadow-lg hover:bg-brand-700"
         aria-label="Abrir chat"
       >
         {open ? "✕" : "💬"}
