@@ -36,49 +36,67 @@ export default function HeroSearch() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="grid grid-cols-1 gap-3 rounded-2xl bg-white p-4 shadow-2xl sm:grid-cols-4 sm:gap-2 sm:p-3"
+      className="grid grid-cols-1 gap-6 border-t border-brand-900/15 pt-6 sm:grid-cols-4 sm:items-end sm:gap-8"
     >
-      <select
-        value={operation}
-        onChange={(e) => setOperation(e.target.value)}
-        className="rounded-xl border border-black/10 bg-zinc-50 px-4 py-3 text-sm text-black"
-      >
-        <option value="">Comprar o alquilar</option>
-        {OPERATION_TYPES.map((op) => (
-          <option key={op} value={op}>
-            {OPERATION_TYPE_LABELS[op]}
-          </option>
-        ))}
-      </select>
-      <select
-        value={type}
-        onChange={(e) => setType(e.target.value)}
-        className="rounded-xl border border-black/10 bg-zinc-50 px-4 py-3 text-sm text-black"
-      >
-        <option value="">Tipo de propiedad</option>
-        {PROPERTY_TYPES.map((t) => (
-          <option key={t} value={t}>
-            {PROPERTY_TYPE_LABELS[t]}
-          </option>
-        ))}
-      </select>
-      <select
-        value={city}
-        onChange={(e) => setCity(e.target.value)}
-        className="rounded-xl border border-black/10 bg-zinc-50 px-4 py-3 text-sm text-black"
-      >
-        <option value="">Toda la costa</option>
-        {COASTAL_CITIES.map((c) => (
-          <option key={c} value={c}>
-            {c}
-          </option>
-        ))}
-      </select>
+      <label className="block">
+        <span className="text-xs font-semibold uppercase tracking-widest text-brand-900/60">
+          Operación
+        </span>
+        <select
+          value={operation}
+          onChange={(e) => setOperation(e.target.value)}
+          className="mt-2 w-full border-b border-brand-900/25 bg-transparent py-2 text-sm text-brand-900 focus:border-brand-600 focus:outline-none"
+        >
+          <option value="">Comprar o alquilar</option>
+          {OPERATION_TYPES.map((op) => (
+            <option key={op} value={op}>
+              {OPERATION_TYPE_LABELS[op]}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label className="block">
+        <span className="text-xs font-semibold uppercase tracking-widest text-brand-900/60">
+          Tipo
+        </span>
+        <select
+          value={type}
+          onChange={(e) => setType(e.target.value)}
+          className="mt-2 w-full border-b border-brand-900/25 bg-transparent py-2 text-sm text-brand-900 focus:border-brand-600 focus:outline-none"
+        >
+          <option value="">Tipo de propiedad</option>
+          {PROPERTY_TYPES.map((t) => (
+            <option key={t} value={t}>
+              {PROPERTY_TYPE_LABELS[t]}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label className="block">
+        <span className="text-xs font-semibold uppercase tracking-widest text-brand-900/60">
+          Ciudad
+        </span>
+        <select
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          className="mt-2 w-full border-b border-brand-900/25 bg-transparent py-2 text-sm text-brand-900 focus:border-brand-600 focus:outline-none"
+        >
+          <option value="">Toda la costa</option>
+          {COASTAL_CITIES.map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
+        </select>
+      </label>
       <button
         type="submit"
-        className="rounded-xl bg-brand-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-brand-700"
+        className="flex items-center justify-between gap-4 border-b border-brand-900 pb-2 text-sm font-bold text-brand-900 transition hover:border-sun-500 hover:text-sun-600"
       >
         Buscar propiedades
+        <span aria-hidden="true" className="text-lg">
+          ↗
+        </span>
       </button>
     </form>
   );
