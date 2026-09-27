@@ -1,7 +1,8 @@
-# InmobiliariaDemo
+# Gastón Niggli Propiedades
 
-Sitio inmobiliario completo: catálogo de propiedades, chat con inteligencia
-artificial y panel de gestión multiusuario.
+Sitio inmobiliario completo para casas en la costa atlántica: catálogo de
+propiedades, chat con inteligencia artificial (con derivación a un agente
+humano) y panel de gestión multiusuario.
 
 ## Stack
 
@@ -18,7 +19,11 @@ artificial y panel de gestión multiusuario.
   filtros (ciudad, tipo, operación, precio) y paginación, ficha de
   detalle con formulario de consulta, página de contacto.
 - **Chat con IA**: widget flotante que responde preguntas sobre las
-  propiedades consultando la base de datos en tiempo real. Sin
+  propiedades consultando la base de datos en tiempo real, y cuando la
+  consulta lo requiere (agendar visita, negociar precio, pedir hablar con
+  alguien) pide nombre y contacto y **deriva la conversación a un agente
+  humano**: crea una consulta que aparece en el panel de gestión y, si se
+  configuró `AGENT_WHATSAPP`, ofrece un link directo de WhatsApp. Sin
   `ANTHROPIC_API_KEY` configurada funciona en modo degradado (búsqueda
   simple) para poder probar el resto del sitio igual.
 - **Panel de gestión** (`/admin`): login con roles `ADMIN` y `AGENTE`.
@@ -55,8 +60,8 @@ Abrir http://localhost:3000
 
 | Email | Contraseña | Rol |
 |---|---|---|
-| admin@inmobiliaria-demo.com | admin123 | ADMIN |
-| agente@inmobiliaria-demo.com | agente123 | AGENTE |
+| gaston@nigglipropiedades.com | admin123 | ADMIN |
+| agente@nigglipropiedades.com | agente123 | AGENTE |
 
 ## Variables de entorno
 
@@ -67,6 +72,10 @@ Ver `.env.example`:
 - `ANTHROPIC_API_KEY`: clave de la API de Anthropic para el chat con IA
   (opcional en desarrollo).
 - `ANTHROPIC_MODEL`: opcional, para elegir el modelo del chat.
+- `AGENT_NAME`: nombre que usa el chat al presentarse y al derivar una
+  consulta.
+- `AGENT_WHATSAPP`: número de WhatsApp del agente (formato internacional,
+  sin "+"), para el link directo que ofrece el chat al derivar.
 
 ## Migrar a Postgres para producción
 

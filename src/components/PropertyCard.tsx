@@ -35,7 +35,7 @@ export default function PropertyCard({ property }: { property: Property }) {
             Sin imagen
           </div>
         )}
-        <span className="absolute left-3 top-3 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
+        <span className="absolute left-3 top-3 rounded-full bg-brand-600 px-3 py-1 text-xs font-semibold text-white">
           {OPERATION_TYPE_LABELS[property.operation as OperationType] ??
             property.operation}
         </span>
@@ -47,7 +47,7 @@ export default function PropertyCard({ property }: { property: Property }) {
         )}
       </div>
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <p className="text-xs font-semibold uppercase tracking-wide text-blue-600">
+        <p className="text-xs font-semibold uppercase tracking-wide text-brand-600">
           {PROPERTY_TYPE_LABELS[property.type as PropertyType] ?? property.type}
         </p>
         <h3 className="line-clamp-2 font-semibold">{property.title}</h3>

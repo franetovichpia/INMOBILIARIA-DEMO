@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "InmobiliariaDemo - Propiedades en venta y alquiler",
+  title: "Gastón Niggli Propiedades - Casas en la costa",
   description:
-    "Sitio inmobiliario de demostración: propiedades, chat con IA y panel de gestión.",
+    "Propiedades en venta y alquiler en la Costa Atlántica: catálogo, chat con IA y panel de gestión.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -5,6 +5,28 @@
   --foreground: #171717;
 }
 
+/* Paleta de marca: verde musgo (color principal) + amarillo (acentos). */
+@theme {
+  --color-brand-50: #f4f6ee;
+  --color-brand-100: #e5eada;
+  --color-brand-200: #ccd8b6;
+  --color-brand-300: #adc08a;
+  --color-brand-400: #8fa768;
+  --color-brand-500: #728c4d;
+  --color-brand-600: #5a6f3d;
+  --color-brand-700: #475831;
+  --color-brand-800: #3a4729;
+  --color-brand-900: #313c24;
+
+  --color-sun-50: #fefbea;
+  --color-sun-100: #fdf3c4;
+  --color-sun-200: #fce88a;
+  --color-sun-300: #fad84e;
+  --color-sun-400: #f7c525;
+  --color-sun-500: #eaa914;
+  --color-sun-600: #cb830f;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

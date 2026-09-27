@@ -45,7 +45,7 @@ export default async function AdminPropertiesPage({
         <h1 className="text-2xl font-bold">Propiedades ({total})</h1>
         <Link
           href="/admin/propiedades/nueva"
-          className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+          className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
         >
           + Nueva propiedad
         </Link>
@@ -86,7 +86,7 @@ export default async function AdminPropertiesPage({
                 <td className="whitespace-nowrap p-3 text-right">
                   <Link
                     href={`/admin/propiedades/${property.id}`}
-                    className="mr-4 text-sm font-medium text-blue-600 hover:underline"
+                    className="mr-4 text-sm font-medium text-brand-600 hover:underline"
                   >
                     Editar
                   </Link>
@@ -113,7 +113,7 @@ export default async function AdminPropertiesPage({
               href={`/admin/propiedades?page=${p}${q ? `&q=${encodeURIComponent(q)}` : ""}`}
               className={`rounded-lg border px-3 py-1.5 ${
                 p === page
-                  ? "border-blue-600 bg-blue-600 text-white"
+                  ? "border-brand-600 bg-brand-600 text-white"
                   : "border-black/10 hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/10"
               }`}
             >
