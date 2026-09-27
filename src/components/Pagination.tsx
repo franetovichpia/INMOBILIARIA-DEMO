@@ -25,20 +25,20 @@ export default function Pagination({
       <Link
         href={hrefFor(Math.max(1, page - 1))}
         aria-disabled={page <= 1}
-        className={`rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 ${
-          page <= 1 ? "pointer-events-none opacity-40" : "hover:bg-black/5 dark:hover:bg-white/10"
+        className={`rounded-lg border border-black/10 px-3 py-2 text-sm ${
+          page <= 1 ? "pointer-events-none opacity-40" : "hover:bg-black/5"
         }`}
       >
         Anterior
       </Link>
-      <span className="text-sm text-black/60 dark:text-white/60">
+      <span className="text-sm text-black/60">
         Página {page} de {totalPages}
       </span>
       <Link
         href={hrefFor(Math.min(totalPages, page + 1))}
         aria-disabled={page >= totalPages}
-        className={`rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 ${
-          page >= totalPages ? "pointer-events-none opacity-40" : "hover:bg-black/5 dark:hover:bg-white/10"
+        className={`rounded-lg border border-black/10 px-3 py-2 text-sm ${
+          page >= totalPages ? "pointer-events-none opacity-40" : "hover:bg-black/5"
         }`}
       >
         Siguiente

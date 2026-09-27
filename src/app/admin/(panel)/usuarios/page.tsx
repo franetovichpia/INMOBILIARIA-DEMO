@@ -38,9 +38,9 @@ export default async function UsersPage({
         </Link>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border border-black/10 dark:border-white/10">
+      <div className="overflow-x-auto rounded-xl border border-black/10">
         <table className="w-full min-w-[600px] text-sm">
-          <thead className="bg-black/5 text-left dark:bg-white/5">
+          <thead className="bg-black/5 text-left">
             <tr>
               <th className="p-3">Nombre</th>
               <th className="p-3">Email</th>
@@ -51,7 +51,7 @@ export default async function UsersPage({
           </thead>
           <tbody>
             {users.map((u) => (
-              <tr key={u.id} className="border-t border-black/10 dark:border-white/10">
+              <tr key={u.id} className="border-t border-black/10">
                 <td className="p-3">{u.name}</td>
                 <td className="p-3">{u.email}</td>
                 <td className="p-3">{u.role === "ADMIN" ? "Administrador" : "Agente"}</td>
@@ -74,7 +74,7 @@ export default async function UsersPage({
               className={`rounded-lg border px-3 py-1.5 ${
                 p === page
                   ? "border-brand-600 bg-brand-600 text-white"
-                  : "border-black/10 hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/10"
+                  : "border-black/10 hover:bg-black/5"
               }`}
             >
               {p}

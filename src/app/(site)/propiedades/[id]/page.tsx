@@ -58,53 +58,53 @@ export default async function PropertyDetailPage({
               {OPERATION_TYPE_LABELS[property.operation as OperationType] ??
                 property.operation}
             </span>
-            <span className="rounded-full bg-black/10 px-3 py-1 text-xs font-semibold dark:bg-white/10">
+            <span className="rounded-full bg-black/10 px-3 py-1 text-xs font-semibold">
               {PROPERTY_TYPE_LABELS[property.type as PropertyType] ??
                 property.type}
             </span>
-            <span className="rounded-full bg-black/10 px-3 py-1 text-xs font-semibold dark:bg-white/10">
+            <span className="rounded-full bg-black/10 px-3 py-1 text-xs font-semibold">
               {PROPERTY_STATUS_LABELS[property.status as PropertyStatus] ??
                 property.status}
             </span>
           </div>
 
           <h1 className="mt-4 text-3xl font-bold">{property.title}</h1>
-          <p className="mt-1 text-black/60 dark:text-white/60">
+          <p className="mt-1 text-black/60">
             {property.address}, {property.city}, {property.province}
           </p>
 
-          <div className="mt-6 grid grid-cols-2 gap-4 rounded-xl border border-black/10 p-4 sm:grid-cols-4 dark:border-white/10">
+          <div className="mt-6 grid grid-cols-2 gap-4 rounded-xl border border-black/10 p-4 sm:grid-cols-4">
             <div>
-              <p className="text-xs text-black/50 dark:text-white/50">Dormitorios</p>
+              <p className="text-xs text-black/50">Dormitorios</p>
               <p className="font-semibold">{property.bedrooms}</p>
             </div>
             <div>
-              <p className="text-xs text-black/50 dark:text-white/50">Baños</p>
+              <p className="text-xs text-black/50">Baños</p>
               <p className="font-semibold">{property.bathrooms}</p>
             </div>
             <div>
-              <p className="text-xs text-black/50 dark:text-white/50">Superficie total</p>
+              <p className="text-xs text-black/50">Superficie total</p>
               <p className="font-semibold">{property.areaTotal} m²</p>
             </div>
             <div>
-              <p className="text-xs text-black/50 dark:text-white/50">Superficie cubierta</p>
+              <p className="text-xs text-black/50">Superficie cubierta</p>
               <p className="font-semibold">{property.areaCovered} m²</p>
             </div>
           </div>
 
           <div className="mt-6">
             <h2 className="text-xl font-semibold">Descripción</h2>
-            <p className="mt-2 whitespace-pre-line text-black/70 dark:text-white/70">
+            <p className="mt-2 whitespace-pre-line text-black/70">
               {property.description}
             </p>
           </div>
         </div>
 
-        <aside className="h-fit rounded-xl border border-black/10 p-6 dark:border-white/10">
+        <aside className="h-fit rounded-xl border border-black/10 p-6">
           <p className="text-3xl font-bold">
             {formatPrice(property.price, property.currency)}
           </p>
-          <p className="mb-6 text-sm text-black/50 dark:text-white/50">
+          <p className="mb-6 text-sm text-black/50">
             {OPERATION_TYPE_LABELS[property.operation as OperationType]}
           </p>
           <h2 className="mb-3 font-semibold">Consultar por esta propiedad</h2>

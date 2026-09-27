@@ -56,13 +56,13 @@ export default async function AdminPropertiesPage({
           name="q"
           defaultValue={q}
           placeholder="Buscar por título o ciudad..."
-          className="w-full max-w-sm rounded-lg border border-black/10 px-3 py-2 text-sm dark:border-white/10 dark:bg-black"
+          className="w-full max-w-sm rounded-lg border border-black/10 px-3 py-2 text-sm"
         />
       </form>
 
-      <div className="overflow-x-auto rounded-xl border border-black/10 dark:border-white/10">
+      <div className="overflow-x-auto rounded-xl border border-black/10">
         <table className="w-full min-w-[700px] text-sm">
-          <thead className="bg-black/5 text-left dark:bg-white/5">
+          <thead className="bg-black/5 text-left">
             <tr>
               <th className="p-3">Título</th>
               <th className="p-3">Ciudad</th>
@@ -74,7 +74,7 @@ export default async function AdminPropertiesPage({
           </thead>
           <tbody>
             {properties.map((property) => (
-              <tr key={property.id} className="border-t border-black/10 dark:border-white/10">
+              <tr key={property.id} className="border-t border-black/10">
                 <td className="max-w-xs truncate p-3 font-medium">{property.title}</td>
                 <td className="p-3">{property.city}</td>
                 <td className="p-3">{formatPrice(property.price, property.currency)}</td>
@@ -96,7 +96,7 @@ export default async function AdminPropertiesPage({
             ))}
             {properties.length === 0 && (
               <tr>
-                <td colSpan={6} className="p-6 text-center text-black/50 dark:text-white/50">
+                <td colSpan={6} className="p-6 text-center text-black/50">
                   No hay propiedades cargadas.
                 </td>
               </tr>
@@ -114,7 +114,7 @@ export default async function AdminPropertiesPage({
               className={`rounded-lg border px-3 py-1.5 ${
                 p === page
                   ? "border-brand-600 bg-brand-600 text-white"
-                  : "border-black/10 hover:bg-black/5 dark:border-white/10 dark:hover:bg-white/10"
+                  : "border-black/10 hover:bg-black/5"
               }`}
             >
               {p}

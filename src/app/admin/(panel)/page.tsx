@@ -31,10 +31,10 @@ export default async function AdminDashboard() {
         {stats.map((stat) => (
           <div
             key={stat.label}
-            className="rounded-xl border border-black/10 bg-white p-5 dark:border-white/10 dark:bg-zinc-950"
+            className="rounded-xl border border-black/10 bg-white p-5"
           >
             <p className="text-3xl font-bold">{stat.value}</p>
-            <p className="text-sm text-black/60 dark:text-white/60">
+            <p className="text-sm text-black/60">
               {stat.label}
             </p>
           </div>
@@ -43,13 +43,13 @@ export default async function AdminDashboard() {
 
       <h2 className="mb-3 mt-10 text-lg font-semibold">Últimas consultas</h2>
       {recentInquiries.length === 0 ? (
-        <p className="text-sm text-black/60 dark:text-white/60">
+        <p className="text-sm text-black/60">
           Todavía no hay consultas.
         </p>
       ) : (
-        <div className="overflow-hidden rounded-xl border border-black/10 dark:border-white/10">
+        <div className="overflow-hidden rounded-xl border border-black/10">
           <table className="w-full text-sm">
-            <thead className="bg-black/5 text-left dark:bg-white/5">
+            <thead className="bg-black/5 text-left">
               <tr>
                 <th className="p-3">Nombre</th>
                 <th className="p-3">Email</th>
@@ -59,7 +59,7 @@ export default async function AdminDashboard() {
             </thead>
             <tbody>
               {recentInquiries.map((inquiry) => (
-                <tr key={inquiry.id} className="border-t border-black/10 dark:border-white/10">
+                <tr key={inquiry.id} className="border-t border-black/10">
                   <td className="p-3">{inquiry.name}</td>
                   <td className="p-3">{inquiry.email}</td>
                   <td className="p-3">{inquiry.property?.title ?? "General"}</td>
